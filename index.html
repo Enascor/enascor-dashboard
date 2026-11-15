@@ -5,39 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Enascor Enterprise Ltd.</title>
 <style>
-body{font-family:Arial,sans-serif;background:#f8fafc;margin:0;padding:16px;color:#1e293b}
-.container{max-width:900px;margin:0 auto}
-h1{color:#1a365d;margin:0 0 4px}
-.sub{color:#64748b;margin-bottom:14px;font-size:.9rem}
-section{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:14px;margin-bottom:12px}
-h2{color:#1a365d;font-size:1.05rem;margin:0 0 8px;border-bottom:1px solid #e2e8f0;padding-bottom:4px}
-table{width:100%;border-collapse:collapse;font-size:.85rem}
-th,td{padding:5px 7px;text-align:left}
+body{font-family:Arial,sans-serif;background:#f8fafc;margin:0;padding:12px;color:#1e293b}
+.container{max-width:980px;margin:0 auto}
+h1{color:#1a365d;margin:0 0 2px;font-size:1.3rem}
+.sub{color:#64748b;margin-bottom:10px;font-size:.8rem}
+.tabs{display:flex;gap:3px;margin-bottom:10px;flex-wrap:wrap}
+.tab{padding:6px 10px;background:#e2e8f0;border:none;border-radius:5px 5px 0 0;cursor:pointer;font-size:.78rem}
+.tab.active{background:#1a365d;color:#fff}
+.panel{display:none;background:#fff;border:1px solid #e2e8f0;border-radius:0 6px 6px 6px;padding:12px}
+.panel.active{display:block}
+h2{color:#1a365d;font-size:1rem;margin:0 0 8px;border-bottom:1px solid #e2e8f0;padding-bottom:3px}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th,td{padding:4px 6px;text-align:left}
 th{background:#edf2f7;color:#1a365d}
 .r{text-align:right}
 .hi{font-weight:bold;background:#f0fff4}
-.sec{font-weight:bold;color:#1a365d;padding-top:8px}
-.cards{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:10px;min-width:120px}
-.card .l{font-size:.65rem;color:#64748b;text-transform:uppercase}
-.card .v{font-size:1.1rem;font-weight:bold;color:#1a365d}
+.sec{font-weight:bold;color:#1a365d;padding-top:6px}
+.cards{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:5px;padding:8px;min-width:90px}
+.card .l{font-size:.55rem;color:#64748b;text-transform:uppercase}
+.card .v{font-size:1rem;font-weight:bold;color:#1a365d}
 .pos{color:#059669}
-.note{font-size:.75rem;color:#64748b;margin-top:6px;text-align:center}
+.note{font-size:.7rem;color:#64748b;margin-top:6px}
 </style>
 </head>
 <body>
 <div class="container">
 <h1>Enascor Enterprise Ltd.</h1>
-<div class="sub">Corporate Dashboard · Accrual Basis · November 2026</div>
+<div class="sub">Corporate Dashboard · November 2026</div>
 
 <div class="cards">
 <div class="card"><div class="l">Net Income</div><div class="v pos">$11,375.19</div></div>
-<div class="card"><div class="l">AR</div><div class="v">$4,580.00</div></div>
-<div class="card"><div class="l">Due from Shareholder</div><div class="v">$7,500.00</div></div>
 <div class="card"><div class="l">Est. Tax</div><div class="v">$1,129.54</div></div>
+<div class="card"><div class="l">AR</div><div class="v">$4,580.00</div></div>
+<div class="card"><div class="l">Home Office</div><div class="v">$710</div></div>
 </div>
 
-<section>
+<div class="tabs">
+<button class="tab active" onclick="show('income')">Income</button>
+<button class="tab" onclick="show('bs')">Balance Sheet</button>
+<button class="tab" onclick="show('tax')">Tax</button>
+<button class="tab" onclick="show('home')">Home Office</button>
+<button class="tab" onclick="show('assets')">Assets</button>
+<button class="tab" onclick="show('ar')">AR Aging</button>
+<button class="tab" onclick="show('budget')">Budget</button>
+<button class="tab" onclick="show('ledger')">Ledger</button>
+</div>
+
+<div id="income" class="panel active">
 <h2>Income Statement</h2>
 <table>
 <tr><td class="sec" colspan="2">Revenue</td></tr>
@@ -46,26 +61,15 @@ th{background:#edf2f7;color:#1a365d}
 <tr class="hi"><td>Total Revenue</td><td class="r">14,898.00</td></tr>
 <tr><td class="sec" colspan="2">Cost of Sales</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Reimbursement costs</td><td class="r">154.00</td></tr>
-<tr class="hi"><td>Total Cost of Sales</td><td class="r">154.00</td></tr>
 <tr class="hi"><td>Gross Profit</td><td class="r">14,744.00</td></tr>
 <tr><td class="sec" colspan="2">Expenses</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Software and subscriptions</td><td class="r">1,321.36</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Professional development / CPE</td><td class="r">100.00</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Office supplies and admin</td><td class="r">80.00</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Office Equipment and Furniture</td><td class="r">495.00</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Bank fees and service charges</td><td class="r">44.10</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Professional fees (legal, etc.)</td><td class="r">618.55</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Office and occupancy (home office)</td><td class="r">709.80</td></tr>
 <tr class="hi"><td>Total Expenses</td><td class="r">3,368.81</td></tr>
 <tr class="hi"><td>Net Income</td><td class="r">11,375.19</td></tr>
 </table>
-</section>
+</div>
 
-<section>
-<h2>Income Tax Assessment</h2>
-<table>
-<tr><td>Net income</td><td class="r">11,375.19</td></tr>
-<tr><td>CCA (computer + printer/desk)</td><td class="r">(2,116.67)</td></tr>
-<tr class="hi"><td>Taxable income</td><td class="r">9,258.52</td></tr>
-<tr class="hi"><td>Estimated tax @ 12.2%</td><td class="r">1,129.54</td></tr>
-</table>
-</section>
-
-<section>
+<div id="bs" class="panel">
 <h2>Balance Sheet</h2>
 <table>
 <tr><td class="sec" colspan="2">Assets</td></tr>
@@ -75,15 +79,90 @@ th{background:#edf2f7;color:#1a365d}
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Accounts receivable</td><td class="r">4,580.00</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Office equipment</td><td class="r">1,166.71</td></tr>
 <tr class="hi"><td>Total Assets</td><td class="r">15,966.61</td></tr>
-<tr><td class="sec" colspan="2">Liabilities & Equity</td></tr>
+<tr><td class="sec" colspan="2">Liabilities</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Due to shareholder</td><td class="r">4,491.42</td></tr>
+<tr class="hi"><td>Total Liabilities</td><td class="r">4,491.42</td></tr>
+<tr><td class="sec" colspan="2">Equity</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Share capital</td><td class="r">100.00</td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Retained earnings</td><td class="r">11,375.19</td></tr>
+<tr class="hi"><td>Total Equity</td><td class="r">11,475.19</td></tr>
 <tr class="hi"><td>Total Liabilities & Equity</td><td class="r">15,966.61</td></tr>
 </table>
-</section>
-
-<p class="note">Enascor Enterprise Ltd. · Calgary, Alberta · enascor.ca</p>
 </div>
+
+<div id="tax" class="panel">
+<h2>Income Tax Assessment</h2>
+<table>
+<tr><td>Net income</td><td class="r">11,375.19</td></tr>
+<tr><td>CCA</td><td class="r">(2,116.67)</td></tr>
+<tr class="hi"><td>Taxable income</td><td class="r">9,258.52</td></tr>
+<tr class="hi"><td>Estimated tax @ 12.2%</td><td class="r">1,129.54</td></tr>
+</table>
+</div>
+
+<div id="home" class="panel">
+<h2>Home Office</h2>
+<table>
+<tr><td>Total house</td><td class="r">2,080 sq ft</td></tr>
+<tr><td>Office</td><td class="r">160 sq ft</td></tr>
+<tr class="hi"><td>Space %</td><td class="r">7.69%</td></tr>
+<tr><td>Time (annualized)</td><td class="r">53.8%</td></tr>
+<tr class="hi"><td>Combined</td><td class="r">4.14%</td></tr>
+<tr class="hi"><td>Home office</td><td class="r">$709.74</td></tr>
+</table>
+</div>
+
+<div id="assets" class="panel">
+<h2>Assets</h2>
+<table>
+<tr><th>Asset</th><th>Class</th><th class="r">Cost</th><th class="r">CCA</th></tr>
+<tr><td>Printer</td><td>8</td><td class="r">$500</td><td class="r">$50</td></tr>
+<tr><td>IKEA Desk</td><td>8</td><td class="r">$667</td><td class="r">$67</td></tr>
+<tr><td>Computer</td><td>50</td><td class="r">$2,000</td><td class="r">$2,000</td></tr>
+<tr class="hi"><td colspan="2">Total</td><td class="r">$3,167</td><td class="r">$2,117</td></tr>
+</table>
+</div>
+
+<div id="ar" class="panel">
+<h2>AR Aging</h2>
+<table>
+<tr><th>Client</th><th>Invoice</th><th>Due</th><th class="r">Amount</th></tr>
+<tr><td>Wareham Enterprises Ltd.</td><td>EE-2026-0002</td><td>2026-12-31</td><td>2027-01-15</td><td class="r">$500.00</td></tr><tr><td>CMO Enterprises Ltd.</td><td>EE-2026-0003</td><td>2026-12-31</td><td>2027-01-15</td><td class="r">$500.00</td></tr><tr><td>JVK Enterprises Ltd.</td><td>EE-2026-0004</td><td>2026-12-31</td><td>2027-01-15</td><td class="r">$500.00</td></tr><tr><td>QuantumPlace Developments Ltd.</td><td>EE-2026-0005</td><td>2026-12-31</td><td>2027-01-15</td><td class="r">$3,080.00</td></tr>
+<tr class="hi"><td colspan="3">Total</td><td class="r">$4,580</td></tr>
+</table>
+<p class="note">All due 15 Jan 2027. Not yet outstanding.</p>
+</div>
+
+<div id="budget" class="panel">
+<h2>FY2026 Budget</h2>
+<table>
+<tr><th>Item</th><th class="r">Actual YTD</th><th class="r">Budget</th><th class="r">Variance</th></tr>
+<tr><td>Professional fees</td><td class="r">14,744</td><td class="r">20,000</td><td class="r">-5,256</td></tr>
+<tr><td>Total expenses</td><td class="r">3,369</td><td class="r">6,000</td><td class="r">-2,631</td></tr>
+<tr class="hi"><td>Net income</td><td class="r">11,375</td><td class="r">14,000</td><td class="r">-2,625</td></tr>
+<tr><td>Home office</td><td class="r">710</td><td class="r">1,200</td><td class="r">-490</td></tr>
+<tr><td>Estimated tax</td><td class="r">1,130</td><td class="r">1,500</td><td class="r">-370</td></tr>
+</table>
+<p class="note">Budget figures are placeholders. Adjust as needed.</p>
+</div>
+
+<div id="ledger" class="panel">
+<h2>Ledger</h2>
+<table>
+<tr><th>Date</th><th>Description</th><th class="r">Amount</th><th>Category</th></tr>
+<tr><td>2026-04-24</td><td>Initial share capital deposit – 100 shares @ </td><td class="r">$100.00</td><td>TRN – Owner contribution</td></tr><tr><td>2026-04-30</td><td>Monthly billing – Digital Package + deposit f</td><td class="r">$-2.10</td><td>EXP – Bank fees and service charges</td></tr><tr><td>2026-03-20</td><td>AMA – Incorporation costs (NUANS + incorporat</td><td class="r">$-532.05</td><td>EXP – Professional fees (legal, etc.)</td></tr><tr><td>2026-05-15</td><td>Deposit – Invoice 2026-0001 QuantumPlace Deve</td><td class="r">$10,164.00</td><td>INC – Professional fees</td></tr><tr><td>2026-05-14</td><td>AMA – Annual return (Highland Crane Service I</td><td class="r">$-86.50</td><td>EXP – Professional fees (legal, etc.)</td></tr><tr><td>2026-05-17</td><td>Nitro PDF Standard – annual subscription</td><td class="r">$-177.13</td><td>EXP – Software and subscriptions</td></tr><tr><td>2026-05-29</td><td>Monthly billing – Digital Package</td><td class="r">$-7.00</td><td>EXP – Bank fees and service charges</td></tr><tr><td>2026-06-30</td><td>Monthly billing – Digital Package</td><td class="r">$-7.00</td><td>EXP – Bank fees and service charges</td></tr><tr><td>2026-06-30</td><td>Alberta Commissioner for Oaths renewal fee</td><td class="r">$-100.00</td><td>EXP – Professional development / CPE</td></tr><tr><td>2026-07-31</td><td>Monthly billing – Digital Package</td><td class="r">$-7.00</td><td>EXP – Bank fees and service charges</td></tr><tr><td>2026-08-31</td><td>Monthly billing – Digital Package</td><td class="r">$-7.00</td><td>EXP – Bank fees and service charges</td></tr><tr><td>2026-09-28</td><td>GoDaddy – enascor.ca domain + protection + Mi</td><td class="r">$-139.21</td><td>EXP – Software and subscriptions</td></tr><tr><td>2026-09-23</td><td>Grok xAI SuperGrok – Sep 23–Oct 23 2026</td><td class="r">$-44.00</td><td>EXP – Software and subscriptions</td></tr><tr><td>2026-09-29</td><td>Monthly billing – Digital Package</td><td class="r">$-7.00</td><td>EXP – Bank fees and service charges</td></tr><tr><td>2026-10-05</td><td>Quo (OpenPhone) – 3-user Starter Plan annual</td><td class="r">$-791.34</td><td>EXP – Software and subscriptions</td></tr><tr><td>2026-10-23</td><td>Grok xAI SuperGrok – Oct 23–Nov 23 2026</td><td class="r">$-43.69</td><td>EXP – Software and subscriptions</td></tr><tr><td>2026-10-26</td><td>Interac e-transfer to shareholder – short-ter</td><td class="r">$-100.00</td><td>TRN – Shareholder loan receivable</td></tr><tr><td>2026-10-26</td><td>Interac e-transfer to shareholder – short-ter</td><td class="r">$-8,900.00</td><td>TRN – Shareholder loan receivable</td></tr><tr><td>2026-10-30</td><td>Monthly billing – Digital Package</td><td class="r">$-7.00</td><td>EXP – Bank fees and service charges</td></tr><tr><td>2026-05-09</td><td>Malwarebytes Plus Premium Security + Privacy </td><td class="r">$-125.99</td><td>EXP – Software and subscriptions</td></tr><tr><td>2026-03-31</td><td>Closing costs – QLS and 2038194 AB (business </td><td class="r">$-154.00</td><td>COS – Reimbursement</td></tr><tr><td>2026-04-30</td><td>Reimbursement from QuantumPlace Developments </td><td class="r">$154.00</td><td>INC – Reimbursement Income</td></tr><tr><td>2026-03-31</td><td>Printer purchased from shareholder (originall</td><td class="r">$-500.00</td><td>TRN – Asset purchase: Printer / office equipment</td></tr><tr><td>2026-01-31</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-02-28</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-03-31</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-04-30</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-05-31</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-06-30</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-07-31</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-08-31</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-09-30</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-10-31</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-11-30</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-12-31</td><td>Home office reimbursement (monthly proration)</td><td class="r">$-59.15</td><td>EXP – Office and occupancy</td></tr><tr><td>2026-03-31</td><td>Ikea card transferred from shareholder (origi</td><td class="r">$-75.00</td><td>EXP – Office Equipment and Furniture</td></tr><tr><td>2026-03-31</td><td>IKEA desk and office furniture (MITTZON table</td><td class="r">$-666.71</td><td>TRN – Asset purchase: Printer / office equipment</td></tr><tr><td>2026-03-31</td><td>Monitor 1 (Dell-style, used)</td><td class="r">$-150.00</td><td>EXP – Office Equipment and Furniture</td></tr><tr><td>2026-03-31</td><td>Monitor 2 (used)</td><td class="r">$-150.00</td><td>EXP – Office Equipment and Furniture</td></tr><tr><td>2026-03-31</td><td>Office chair (grey mesh, used)</td><td class="r">$-120.00</td><td>EXP – Office Equipment and Furniture</td></tr><tr><td>2026-03-31</td><td>Desk organizers and paper trays (used)</td><td class="r">$-80.00</td><td>EXP – Office supplies and admin</td></tr><tr><td>2026-12-31</td><td>Wareham Enterprises Ltd. – EE-2026-0002</td><td class="r">$500.00</td><td>INC – Professional fees</td></tr><tr><td>2026-12-31</td><td>CMO Enterprises Ltd. – EE-2026-0003</td><td class="r">$500.00</td><td>INC – Professional fees</td></tr><tr><td>2026-12-31</td><td>JVK Enterprises Ltd. – EE-2026-0004</td><td class="r">$500.00</td><td>INC – Professional fees</td></tr><tr><td>2026-12-31</td><td>QuantumPlace Developments Ltd. – EE-2026-0005</td><td class="r">$3,080.00</td><td>INC – Professional fees</td></tr><tr><td>2026-11-14</td><td>Shareholder repayment of loan – transfer to W</td><td class="r">$1,500.00</td><td>TRN – Shareholder loan repayment</td></tr>
+</table>
+</div>
+
+<p class="note">Enascor Enterprise Ltd. · enascor.ca</p>
+</div>
+<script>
+function show(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
 </body>
 </html>
