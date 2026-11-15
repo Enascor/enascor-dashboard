@@ -1,0 +1,17 @@
+name: Update Dashboard
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Note
+        run: |
+          echo "This workflow is a placeholder."
+          echo "Upload a new index.html manually, or connect a data source."
+          echo "Site: https://enascor.github.io/enascor-dashboard/"
